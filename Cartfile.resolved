@@ -1,0 +1,5 @@
+github "Alamofire/Alamofire" "88ca2a248ee0142064e2c760ea9f15279c7489df"
+github "CocoaLumberjack/CocoaLumberjack" "4dc87df698af9378051f5b5ae915dacb16f75ec5"
+github "JeffBNimble/swift-protocols-core" "af506e62d843557fcb9dd9b9bea65f197b8b87b0"
+github "JeffBNimble/swift-protocols-sqlite" "2d80e6e79a0aa2f618532ffc8fb3fa60629a5a5a"
+github "JeffBNimble/swift-content-provider" "df0073e8d118e5db58bdfe1cda2163d3c159d135"

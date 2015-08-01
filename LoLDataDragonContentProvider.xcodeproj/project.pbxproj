@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A52E80601B6BDB2500DE54E7 /* LoLDataDragonContentProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80551B6BDB2500DE54E7 /* LoLDataDragonContentProvider.framework */; };
+		A52E80651B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E80641B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.swift */; };
+		A52E80731B6BE3CB00DE54E7 /* LoLDataDragonContentProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = A52E80711B6BE3CB00DE54E7 /* LoLDataDragonContentProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A52E80791B6BE77B00DE54E7 /* GetRealmCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E80781B6BE77B00DE54E7 /* GetRealmCommand.swift */; };
+		A52E807C1B6BF72500DE54E7 /* LoLApiRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E807B1B6BF72500DE54E7 /* LoLApiRequestManager.swift */; };
+		A52E807E1B6C269C00DE54E7 /* GetChampionDataCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E807D1B6C269C00DE54E7 /* GetChampionDataCommand.swift */; };
+		A52E80801B6C2F7E00DE54E7 /* DataDragonContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E807F1B6C2F7E00DE54E7 /* DataDragonContentProvider.swift */; };
+		A52E80831B6C300F00DE54E7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80811B6C300F00DE54E7 /* Alamofire.framework */; };
+		A52E80841B6C300F00DE54E7 /* SwiftContentProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80821B6C300F00DE54E7 /* SwiftContentProvider.framework */; };
+		A52E80861B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80851B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework */; };
+		A52E80D41B6C596800DE54E7 /* SwiftProtocolsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80D31B6C596800DE54E7 /* SwiftProtocolsCore.framework */; };
+		A52E80D61B6C647C00DE54E7 /* DataDragonDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E80D51B6C647C00DE54E7 /* DataDragonDatabase.swift */; };
+		A52E80E31B6D5BE000DE54E7 /* DataDragonSQLiteOpenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E80E21B6D5BE000DE54E7 /* DataDragonSQLiteOpenHelper.swift */; };
+		A56728081B6D61C600722100 /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56728071B6D61C600722100 /* CocoaLumberjackSwift.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A52E80611B6BDB2500DE54E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A52E804C1B6BDB2400DE54E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A52E80541B6BDB2500DE54E7;
+			remoteInfo = LoLDataDragonContentProvider;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A52E80551B6BDB2500DE54E7 /* LoLDataDragonContentProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoLDataDragonContentProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52E805F1B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoLDataDragonContentProviderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52E80641B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLDataDragonContentProviderTests.swift; sourceTree = "<group>"; };
+		A52E80661B6BDB2500DE54E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A52E80701B6BE3CB00DE54E7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A52E80711B6BE3CB00DE54E7 /* LoLDataDragonContentProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoLDataDragonContentProvider.h; sourceTree = "<group>"; };
+		A52E80781B6BE77B00DE54E7 /* GetRealmCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRealmCommand.swift; sourceTree = "<group>"; };
+		A52E807B1B6BF72500DE54E7 /* LoLApiRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoLApiRequestManager.swift; sourceTree = "<group>"; };
+		A52E807D1B6C269C00DE54E7 /* GetChampionDataCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetChampionDataCommand.swift; sourceTree = "<group>"; };
+		A52E807F1B6C2F7E00DE54E7 /* DataDragonContentProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonContentProvider.swift; sourceTree = "<group>"; };
+		A52E80811B6C300F00DE54E7 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Carthage/Checkouts/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
+		A52E80821B6C300F00DE54E7 /* SwiftContentProvider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftContentProvider.framework; path = "Carthage/Checkouts/swift-content-provider/build/Debug-iphoneos/SwiftContentProvider.framework"; sourceTree = "<group>"; };
+		A52E80851B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtocolsSQLite.framework; path = "Carthage/Checkouts/swift-protocols-sqlite/build/Debug-iphoneos/SwiftProtocolsSQLite.framework"; sourceTree = "<group>"; };
+		A52E80D31B6C596800DE54E7 /* SwiftProtocolsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtocolsCore.framework; path = "Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos/SwiftProtocolsCore.framework"; sourceTree = "<group>"; };
+		A52E80D51B6C647C00DE54E7 /* DataDragonDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonDatabase.swift; sourceTree = "<group>"; };
+		A52E80E21B6D5BE000DE54E7 /* DataDragonSQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonSQLiteOpenHelper.swift; sourceTree = "<group>"; };
+		A56728071B6D61C600722100 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = "Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjackSwift.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A52E80511B6BDB2500DE54E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A56728081B6D61C600722100 /* CocoaLumberjackSwift.framework in Frameworks */,
+				A52E80D41B6C596800DE54E7 /* SwiftProtocolsCore.framework in Frameworks */,
+				A52E80861B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework in Frameworks */,
+				A52E80831B6C300F00DE54E7 /* Alamofire.framework in Frameworks */,
+				A52E80841B6C300F00DE54E7 /* SwiftContentProvider.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52E805C1B6BDB2500DE54E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52E80601B6BDB2500DE54E7 /* LoLDataDragonContentProvider.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A52E804B1B6BDB2400DE54E7 = {
+			isa = PBXGroup;
+			children = (
+				A56728071B6D61C600722100 /* CocoaLumberjackSwift.framework */,
+				A52E80D31B6C596800DE54E7 /* SwiftProtocolsCore.framework */,
+				A52E80851B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework */,
+				A52E80811B6C300F00DE54E7 /* Alamofire.framework */,
+				A52E80821B6C300F00DE54E7 /* SwiftContentProvider.framework */,
+				A52E80571B6BDB2500DE54E7 /* LoLDataDragonContentProvider */,
+				A52E80631B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests */,
+				A52E80561B6BDB2500DE54E7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A52E80561B6BDB2500DE54E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A52E80551B6BDB2500DE54E7 /* LoLDataDragonContentProvider.framework */,
+				A52E805F1B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A52E80571B6BDB2500DE54E7 /* LoLDataDragonContentProvider */ = {
+			isa = PBXGroup;
+			children = (
+				A52E80741B6BE40500DE54E7 /* content */,
+				A52E806F1B6BE3CB00DE54E7 /* Supporting Files */,
+			);
+			path = LoLDataDragonContentProvider;
+			sourceTree = "<group>";
+		};
+		A52E80631B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests */ = {
+			isa = PBXGroup;
+			children = (
+				A52E80641B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.swift */,
+				A52E80661B6BDB2500DE54E7 /* Info.plist */,
+			);
+			path = LoLDataDragonContentProviderTests;
+			sourceTree = "<group>";
+		};
+		A52E806F1B6BE3CB00DE54E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A52E80701B6BE3CB00DE54E7 /* Info.plist */,
+				A52E80711B6BE3CB00DE54E7 /* LoLDataDragonContentProvider.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A52E80741B6BE40500DE54E7 /* content */ = {
+			isa = PBXGroup;
+			children = (
+				A52E80751B6BE40500DE54E7 /* lol */,
+				A52E80771B6BE40500DE54E7 /* provider */,
+			);
+			path = content;
+			sourceTree = "<group>";
+		};
+		A52E80751B6BE40500DE54E7 /* lol */ = {
+			isa = PBXGroup;
+			children = (
+				A52E80761B6BE40500DE54E7 /* command */,
+				A52E807A1B6BF6DE00DE54E7 /* http */,
+			);
+			path = lol;
+			sourceTree = "<group>";
+		};
+		A52E80761B6BE40500DE54E7 /* command */ = {
+			isa = PBXGroup;
+			children = (
+				A52E80781B6BE77B00DE54E7 /* GetRealmCommand.swift */,
+				A52E807D1B6C269C00DE54E7 /* GetChampionDataCommand.swift */,
+			);
+			path = command;
+			sourceTree = "<group>";
+		};
+		A52E80771B6BE40500DE54E7 /* provider */ = {
+			isa = PBXGroup;
+			children = (
+				A52E807F1B6C2F7E00DE54E7 /* DataDragonContentProvider.swift */,
+				A52E80D51B6C647C00DE54E7 /* DataDragonDatabase.swift */,
+				A52E80E21B6D5BE000DE54E7 /* DataDragonSQLiteOpenHelper.swift */,
+			);
+			path = provider;
+			sourceTree = "<group>";
+		};
+		A52E807A1B6BF6DE00DE54E7 /* http */ = {
+			isa = PBXGroup;
+			children = (
+				A52E807B1B6BF72500DE54E7 /* LoLApiRequestManager.swift */,
+			);
+			path = http;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A52E80521B6BDB2500DE54E7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52E80731B6BE3CB00DE54E7 /* LoLDataDragonContentProvider.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A52E80541B6BDB2500DE54E7 /* LoLDataDragonContentProvider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A52E80691B6BDB2500DE54E7 /* Build configuration list for PBXNativeTarget "LoLDataDragonContentProvider" */;
+			buildPhases = (
+				A52E80501B6BDB2500DE54E7 /* Sources */,
+				A52E80511B6BDB2500DE54E7 /* Frameworks */,
+				A52E80521B6BDB2500DE54E7 /* Headers */,
+				A52E80531B6BDB2500DE54E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LoLDataDragonContentProvider;
+			productName = LoLDataDragonContentProvider;
+			productReference = A52E80551B6BDB2500DE54E7 /* LoLDataDragonContentProvider.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A52E805E1B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A52E806C1B6BDB2500DE54E7 /* Build configuration list for PBXNativeTarget "LoLDataDragonContentProviderTests" */;
+			buildPhases = (
+				A52E805B1B6BDB2500DE54E7 /* Sources */,
+				A52E805C1B6BDB2500DE54E7 /* Frameworks */,
+				A52E805D1B6BDB2500DE54E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A52E80621B6BDB2500DE54E7 /* PBXTargetDependency */,
+			);
+			name = LoLDataDragonContentProviderTests;
+			productName = LoLDataDragonContentProviderTests;
+			productReference = A52E805F1B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A52E804C1B6BDB2400DE54E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = nimbleNoggin.io;
+				TargetAttributes = {
+					A52E80541B6BDB2500DE54E7 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					A52E805E1B6BDB2500DE54E7 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = A52E804F1B6BDB2400DE54E7 /* Build configuration list for PBXProject "LoLDataDragonContentProvider" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A52E804B1B6BDB2400DE54E7;
+			productRefGroup = A52E80561B6BDB2500DE54E7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A52E80541B6BDB2500DE54E7 /* LoLDataDragonContentProvider */,
+				A52E805E1B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A52E80531B6BDB2500DE54E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52E805D1B6BDB2500DE54E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A52E80501B6BDB2500DE54E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52E807E1B6C269C00DE54E7 /* GetChampionDataCommand.swift in Sources */,
+				A52E80801B6C2F7E00DE54E7 /* DataDragonContentProvider.swift in Sources */,
+				A52E807C1B6BF72500DE54E7 /* LoLApiRequestManager.swift in Sources */,
+				A52E80D61B6C647C00DE54E7 /* DataDragonDatabase.swift in Sources */,
+				A52E80E31B6D5BE000DE54E7 /* DataDragonSQLiteOpenHelper.swift in Sources */,
+				A52E80791B6BE77B00DE54E7 /* GetRealmCommand.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52E805B1B6BDB2500DE54E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52E80651B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A52E80621B6BDB2500DE54E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A52E80541B6BDB2500DE54E7 /* LoLDataDragonContentProvider */;
+			targetProxy = A52E80611B6BDB2500DE54E7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A52E80671B6BDB2500DE54E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A52E80681B6BDB2500DE54E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A52E806A1B6BDB2500DE54E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/Carthage/Checkouts/Alamofire/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/swift-content-provider/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/swift-protocols-sqlite/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = "LoLDataDragonContentProvider/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.nimblenoggin.LoLDataDragonContentProvider;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A52E806B1B6BDB2500DE54E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/Carthage/Checkouts/Alamofire/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/swift-content-provider/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/swift-protocols-sqlite/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = "LoLDataDragonContentProvider/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.nimblenoggin.LoLDataDragonContentProvider;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A52E806D1B6BDB2500DE54E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = LoLDataDragonContentProviderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.nimblenoggin.LoLDataDragonContentProviderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A52E806E1B6BDB2500DE54E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = LoLDataDragonContentProviderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.nimblenoggin.LoLDataDragonContentProviderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A52E804F1B6BDB2400DE54E7 /* Build configuration list for PBXProject "LoLDataDragonContentProvider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52E80671B6BDB2500DE54E7 /* Debug */,
+				A52E80681B6BDB2500DE54E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A52E80691B6BDB2500DE54E7 /* Build configuration list for PBXNativeTarget "LoLDataDragonContentProvider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52E806A1B6BDB2500DE54E7 /* Debug */,
+				A52E806B1B6BDB2500DE54E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A52E806C1B6BDB2500DE54E7 /* Build configuration list for PBXNativeTarget "LoLDataDragonContentProviderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52E806D1B6BDB2500DE54E7 /* Debug */,
+				A52E806E1B6BDB2500DE54E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A52E804C1B6BDB2400DE54E7 /* Project object */;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:LoLDataDragonContentProvider.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LoLDataDragonContentProviderPlayground.playground">
+   </FileRef>
+   <Group
+      location = "container:"
+      name = "Frameworks">
+      <FileRef
+         location = "group:Carthage/Checkouts/Alamofire/Alamofire.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Carthage/Checkouts/CocoaLumberjack/Lumberjack.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Carthage/Checkouts/swift-content-provider/SwiftContentProvider.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Carthage/Checkouts/swift-protocols-core/SwiftProtocolsCore.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Carthage/Checkouts/swift-protocols-sqlite/SwiftProtocolsSQLite.xcodeproj">
+      </FileRef>
+   </Group>
+</Workspace>
