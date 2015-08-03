@@ -10,17 +10,17 @@
 		A52E80601B6BDB2500DE54E7 /* LoLDataDragonContentProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80551B6BDB2500DE54E7 /* LoLDataDragonContentProvider.framework */; };
 		A52E80651B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E80641B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.swift */; };
 		A52E80731B6BE3CB00DE54E7 /* LoLDataDragonContentProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = A52E80711B6BE3CB00DE54E7 /* LoLDataDragonContentProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A52E80791B6BE77B00DE54E7 /* GetRealmCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E80781B6BE77B00DE54E7 /* GetRealmCommand.swift */; };
-		A52E807C1B6BF72500DE54E7 /* LoLApiRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E807B1B6BF72500DE54E7 /* LoLApiRequestManager.swift */; };
-		A52E807E1B6C269C00DE54E7 /* GetChampionDataCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E807D1B6C269C00DE54E7 /* GetChampionDataCommand.swift */; };
-		A52E80801B6C2F7E00DE54E7 /* DataDragonContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E807F1B6C2F7E00DE54E7 /* DataDragonContentProvider.swift */; };
 		A52E80831B6C300F00DE54E7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80811B6C300F00DE54E7 /* Alamofire.framework */; };
 		A52E80841B6C300F00DE54E7 /* SwiftContentProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80821B6C300F00DE54E7 /* SwiftContentProvider.framework */; };
 		A52E80861B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80851B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework */; };
 		A52E80D41B6C596800DE54E7 /* SwiftProtocolsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80D31B6C596800DE54E7 /* SwiftProtocolsCore.framework */; };
-		A52E80D61B6C647C00DE54E7 /* DataDragonDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E80D51B6C647C00DE54E7 /* DataDragonDatabase.swift */; };
-		A52E80E31B6D5BE000DE54E7 /* DataDragonSQLiteOpenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E80E21B6D5BE000DE54E7 /* DataDragonSQLiteOpenHelper.swift */; };
 		A56728081B6D61C600722100 /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56728071B6D61C600722100 /* CocoaLumberjackSwift.framework */; };
+		A56728161B6EF6C100722100 /* GetChampionDataCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567280C1B6EF6C100722100 /* GetChampionDataCommand.swift */; };
+		A56728171B6EF6C100722100 /* GetRealmCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567280D1B6EF6C100722100 /* GetRealmCommand.swift */; };
+		A56728181B6EF6C100722100 /* LoLApiRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567280F1B6EF6C100722100 /* LoLApiRequestManager.swift */; };
+		A56728191B6EF6C100722100 /* DataDragonContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56728131B6EF6C100722100 /* DataDragonContentProvider.swift */; };
+		A567281A1B6EF6C100722100 /* DataDragonDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56728141B6EF6C100722100 /* DataDragonDatabase.swift */; };
+		A567281B1B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56728151B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,17 +40,17 @@
 		A52E80661B6BDB2500DE54E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A52E80701B6BE3CB00DE54E7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A52E80711B6BE3CB00DE54E7 /* LoLDataDragonContentProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoLDataDragonContentProvider.h; sourceTree = "<group>"; };
-		A52E80781B6BE77B00DE54E7 /* GetRealmCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRealmCommand.swift; sourceTree = "<group>"; };
-		A52E807B1B6BF72500DE54E7 /* LoLApiRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoLApiRequestManager.swift; sourceTree = "<group>"; };
-		A52E807D1B6C269C00DE54E7 /* GetChampionDataCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetChampionDataCommand.swift; sourceTree = "<group>"; };
-		A52E807F1B6C2F7E00DE54E7 /* DataDragonContentProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonContentProvider.swift; sourceTree = "<group>"; };
 		A52E80811B6C300F00DE54E7 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Carthage/Checkouts/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		A52E80821B6C300F00DE54E7 /* SwiftContentProvider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftContentProvider.framework; path = "Carthage/Checkouts/swift-content-provider/build/Debug-iphoneos/SwiftContentProvider.framework"; sourceTree = "<group>"; };
 		A52E80851B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtocolsSQLite.framework; path = "Carthage/Checkouts/swift-protocols-sqlite/build/Debug-iphoneos/SwiftProtocolsSQLite.framework"; sourceTree = "<group>"; };
 		A52E80D31B6C596800DE54E7 /* SwiftProtocolsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtocolsCore.framework; path = "Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos/SwiftProtocolsCore.framework"; sourceTree = "<group>"; };
-		A52E80D51B6C647C00DE54E7 /* DataDragonDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonDatabase.swift; sourceTree = "<group>"; };
-		A52E80E21B6D5BE000DE54E7 /* DataDragonSQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonSQLiteOpenHelper.swift; sourceTree = "<group>"; };
 		A56728071B6D61C600722100 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = "Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjackSwift.framework"; sourceTree = "<group>"; };
+		A567280C1B6EF6C100722100 /* GetChampionDataCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetChampionDataCommand.swift; sourceTree = "<group>"; };
+		A567280D1B6EF6C100722100 /* GetRealmCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRealmCommand.swift; sourceTree = "<group>"; };
+		A567280F1B6EF6C100722100 /* LoLApiRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoLApiRequestManager.swift; sourceTree = "<group>"; };
+		A56728131B6EF6C100722100 /* DataDragonContentProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonContentProvider.swift; sourceTree = "<group>"; };
+		A56728141B6EF6C100722100 /* DataDragonDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonDatabase.swift; sourceTree = "<group>"; };
+		A56728151B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonSQLiteOpenHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,8 @@
 		A52E80571B6BDB2500DE54E7 /* LoLDataDragonContentProvider */ = {
 			isa = PBXGroup;
 			children = (
-				A52E80741B6BE40500DE54E7 /* content */,
+				A56728091B6EF6C100722100 /* internal */,
+				A56728101B6EF6C100722100 /* public */,
 				A52E806F1B6BE3CB00DE54E7 /* Supporting Files */,
 			);
 			path = LoLDataDragonContentProvider;
@@ -127,49 +128,64 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A52E80741B6BE40500DE54E7 /* content */ = {
+		A56728091B6EF6C100722100 /* internal */ = {
 			isa = PBXGroup;
 			children = (
-				A52E80751B6BE40500DE54E7 /* lol */,
-				A52E80771B6BE40500DE54E7 /* provider */,
+				A567280A1B6EF6C100722100 /* lol */,
 			);
-			path = content;
+			path = internal;
 			sourceTree = "<group>";
 		};
-		A52E80751B6BE40500DE54E7 /* lol */ = {
+		A567280A1B6EF6C100722100 /* lol */ = {
 			isa = PBXGroup;
 			children = (
-				A52E80761B6BE40500DE54E7 /* command */,
-				A52E807A1B6BF6DE00DE54E7 /* http */,
+				A567280B1B6EF6C100722100 /* command */,
+				A567280E1B6EF6C100722100 /* http */,
 			);
 			path = lol;
 			sourceTree = "<group>";
 		};
-		A52E80761B6BE40500DE54E7 /* command */ = {
+		A567280B1B6EF6C100722100 /* command */ = {
 			isa = PBXGroup;
 			children = (
-				A52E80781B6BE77B00DE54E7 /* GetRealmCommand.swift */,
-				A52E807D1B6C269C00DE54E7 /* GetChampionDataCommand.swift */,
+				A567280C1B6EF6C100722100 /* GetChampionDataCommand.swift */,
+				A567280D1B6EF6C100722100 /* GetRealmCommand.swift */,
 			);
 			path = command;
 			sourceTree = "<group>";
 		};
-		A52E80771B6BE40500DE54E7 /* provider */ = {
+		A567280E1B6EF6C100722100 /* http */ = {
 			isa = PBXGroup;
 			children = (
-				A52E807F1B6C2F7E00DE54E7 /* DataDragonContentProvider.swift */,
-				A52E80D51B6C647C00DE54E7 /* DataDragonDatabase.swift */,
-				A52E80E21B6D5BE000DE54E7 /* DataDragonSQLiteOpenHelper.swift */,
-			);
-			path = provider;
-			sourceTree = "<group>";
-		};
-		A52E807A1B6BF6DE00DE54E7 /* http */ = {
-			isa = PBXGroup;
-			children = (
-				A52E807B1B6BF72500DE54E7 /* LoLApiRequestManager.swift */,
+				A567280F1B6EF6C100722100 /* LoLApiRequestManager.swift */,
 			);
 			path = http;
+			sourceTree = "<group>";
+		};
+		A56728101B6EF6C100722100 /* public */ = {
+			isa = PBXGroup;
+			children = (
+				A56728111B6EF6C100722100 /* content */,
+			);
+			path = public;
+			sourceTree = "<group>";
+		};
+		A56728111B6EF6C100722100 /* content */ = {
+			isa = PBXGroup;
+			children = (
+				A56728121B6EF6C100722100 /* provider */,
+			);
+			path = content;
+			sourceTree = "<group>";
+		};
+		A56728121B6EF6C100722100 /* provider */ = {
+			isa = PBXGroup;
+			children = (
+				A56728131B6EF6C100722100 /* DataDragonContentProvider.swift */,
+				A56728141B6EF6C100722100 /* DataDragonDatabase.swift */,
+				A56728151B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift */,
+			);
+			path = provider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,12 +296,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A52E807E1B6C269C00DE54E7 /* GetChampionDataCommand.swift in Sources */,
-				A52E80801B6C2F7E00DE54E7 /* DataDragonContentProvider.swift in Sources */,
-				A52E807C1B6BF72500DE54E7 /* LoLApiRequestManager.swift in Sources */,
-				A52E80D61B6C647C00DE54E7 /* DataDragonDatabase.swift in Sources */,
-				A52E80E31B6D5BE000DE54E7 /* DataDragonSQLiteOpenHelper.swift in Sources */,
-				A52E80791B6BE77B00DE54E7 /* GetRealmCommand.swift in Sources */,
+				A567281A1B6EF6C100722100 /* DataDragonDatabase.swift in Sources */,
+				A56728171B6EF6C100722100 /* GetRealmCommand.swift in Sources */,
+				A56728161B6EF6C100722100 /* GetChampionDataCommand.swift in Sources */,
+				A567281B1B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift in Sources */,
+				A56728181B6EF6C100722100 /* LoLApiRequestManager.swift in Sources */,
+				A56728191B6EF6C100722100 /* DataDragonContentProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
