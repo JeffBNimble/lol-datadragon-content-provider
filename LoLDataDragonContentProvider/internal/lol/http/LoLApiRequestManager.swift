@@ -39,7 +39,7 @@ public class LoLApiRequestManager : Alamofire.Manager {
             self.completionQueue = completionQueue
     }
 
-    required public init(configuration: NSURLSessionConfiguration, serverTrustPolicyManager: ServerTrustPolicyManager?) {
+    public required init(configuration: NSURLSessionConfiguration, serverTrustPolicyManager: ServerTrustPolicyManager?) {
         self.apiKey = ""
         self.apiVersion = ""
         self.region = ""
@@ -47,7 +47,11 @@ public class LoLApiRequestManager : Alamofire.Manager {
         super.init(configuration: configuration, serverTrustPolicyManager: serverTrustPolicyManager)
     }
     
-    public override func request(method: Alamofire.Method, _ URLString: URLStringConvertible, parameters: [String : AnyObject]? = nil, encoding: ParameterEncoding = .URL, headers: [String : String]? = nil) -> Request {
+    public override func request(method: Alamofire.Method,
+        _ URLString: URLStringConvertible,
+        parameters: [String : AnyObject]? = nil,
+        encoding: ParameterEncoding = .URL,
+        headers: [String : String]? = nil) -> Request {
         return super.request(method, self.asAbsoluteURL(URLString), parameters: self.addLoLParameters(parameters), encoding: encoding, headers: headers)
     }
 

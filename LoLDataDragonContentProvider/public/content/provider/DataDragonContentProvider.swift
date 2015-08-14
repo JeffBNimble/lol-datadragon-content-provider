@@ -28,12 +28,12 @@ public enum DataDragonUris : MatchedUri {
 public class DataDragonContentProvider : ContentProvider {
     public var contentResolver : ContentResolver?
     
-    private let databaseOpenHelper : SQLiteOpenHelper
+    private let database : SQLiteDatabase
     private let sqlStatementBuilder = SQLiteStatementBuilder()
     private let uriMatcher : UriMatcher = UriMatcher()
     
-    public required init(databaseOpenHelper: SQLiteOpenHelper) {
-        self.databaseOpenHelper = databaseOpenHelper
+    public init(database: SQLiteDatabase) {
+        self.database = database
     }
     
     public func delete(uri: Uri, selection: String?, selectionArgs: [AnyObject]?) throws -> Int {
@@ -466,8 +466,8 @@ public class DataDragonContentProvider : ContentProvider {
         groupBy: String?,
         having: String?,
         sort: String?) throws -> SQLQueryOperation {
-            let db = try self.databaseOpenHelper.getDatabase()
-            let op = SQLQueryOperation(database: db, statementBuilder: self.sqlStatementBuilder)
+            try self.ensureDatabaseIsOpen()
+            let op = SQLQueryOperation(database: self.database, statementBuilder: self.sqlStatementBuilder)
             op.tableName = table
             op.projection = projection
             op.selection = selection
@@ -486,8 +486,8 @@ public class DataDragonContentProvider : ContentProvider {
         groupBy: String?,
         having: String?,
         sort: String?) throws -> SQLQueryOperation {
-            let db = try self.databaseOpenHelper.getDatabase()
-            let op = SQLQueryOperation(database: db, statementBuilder: self.sqlStatementBuilder)
+            try self.ensureDatabaseIsOpen()
+            let op = SQLQueryOperation(database: self.database, statementBuilder: self.sqlStatementBuilder)
             op.tableName = table
             op.projection = projection
             op.selection = selection
@@ -503,8 +503,8 @@ public class DataDragonContentProvider : ContentProvider {
         contentValues: [String : AnyObject]?,
         selection: String?,
         selectionArgs: [AnyObject]?) throws -> SQLUpdateOperation {
-            let db = try self.databaseOpenHelper.getDatabase()
-            let op = SQLUpdateOperation(database: db, statementBuilder: self.sqlStatementBuilder)
+            try self.ensureDatabaseIsOpen()
+            let op = SQLUpdateOperation(database: self.database, statementBuilder: self.sqlStatementBuilder)
             op.tableName = table
             op.contentValues = contentValues
             op.selection = selection
@@ -517,14 +517,20 @@ public class DataDragonContentProvider : ContentProvider {
         contentValues: [String : AnyObject]?,
         selection: String?,
         selectionArgs: [String : AnyObject]?) throws -> SQLUpdateOperation {
-            let db = try self.databaseOpenHelper.getDatabase()
-            let op = SQLUpdateOperation(database: db, statementBuilder: self.sqlStatementBuilder)
+            try self.ensureDatabaseIsOpen()
+            let op = SQLUpdateOperation(database: self.database, statementBuilder: self.sqlStatementBuilder)
             op.tableName = table
             op.contentValues = contentValues
             op.selection = selection
             op.namedSelectionArgs = selectionArgs
         
             return op
+    }
+    
+    private func ensureDatabaseIsOpen() throws {
+        if !self.database.isOpen {
+            try self.database.open()
+        }
     }
 
 }

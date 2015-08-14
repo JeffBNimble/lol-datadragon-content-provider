@@ -12,21 +12,23 @@ import Alamofire
 public class GetChampionDataCommand {
     private static let CHAMPION_PATH = "/api/lol/static-data/\(LoLApiRequestManager.PLACEHOLDER_REGION)/\(LoLApiRequestManager.PLACEHOLDER_API_VERSION)/champion"
     
-    private var httpManager : Alamofire.Manager
+    private let completionQueue : dispatch_queue_t
+    private let httpManager : Alamofire.Manager
     
-    public required init(httpManager : Alamofire.Manager) {
+    public init(httpManager : Alamofire.Manager, completionQueue: dispatch_queue_t) {
         self.httpManager = httpManager
+        self.completionQueue = completionQueue
     }
     
-    public func execute(success: (result:NSDictionary?) -> (), error: (error: ErrorType?) -> ()) {
+    public func execute(success: (result:[String : AnyObject]?) -> (), error: (error: ErrorType?) -> ()) {
         self.httpManager.request(Alamofire.Method.GET, GetChampionDataCommand.CHAMPION_PATH)
-            .responseJSON() { (request, response, result) in
+            .response(queue: self.completionQueue, responseSerializer: Request.JSONResponseSerializer()) { _, _, result in
                 guard result.isSuccess else {
                     error(error: result.error)
                     return
                 }
                 
-                success(result: result.value as? NSDictionary)
+                success(result: result.value as? [String : AnyObject])
+            }
         }
-    }
 }

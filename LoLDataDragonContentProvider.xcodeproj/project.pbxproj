@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A50B5B331B721A850093049A /* SyncRemoteDataDragonDataCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50B5B321B721A850093049A /* SyncRemoteDataDragonDataCommand.swift */; };
 		A52E80601B6BDB2500DE54E7 /* LoLDataDragonContentProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80551B6BDB2500DE54E7 /* LoLDataDragonContentProvider.framework */; };
 		A52E80651B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E80641B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.swift */; };
 		A52E80731B6BE3CB00DE54E7 /* LoLDataDragonContentProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = A52E80711B6BE3CB00DE54E7 /* LoLDataDragonContentProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -21,6 +22,8 @@
 		A56728191B6EF6C100722100 /* DataDragonContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56728131B6EF6C100722100 /* DataDragonContentProvider.swift */; };
 		A567281A1B6EF6C100722100 /* DataDragonDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56728141B6EF6C100722100 /* DataDragonDatabase.swift */; };
 		A567281B1B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56728151B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift */; };
+		A567281D1B6EF7C500722100 /* DataDragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567281C1B6EF7C500722100 /* DataDragon.swift */; };
+		A57F70CF1B77A09B00D46102 /* SwiftAdaptersFMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A57F70CE1B77A09B00D46102 /* SwiftAdaptersFMDB.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A50B5B321B721A850093049A /* SyncRemoteDataDragonDataCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncRemoteDataDragonDataCommand.swift; sourceTree = "<group>"; };
 		A52E80551B6BDB2500DE54E7 /* LoLDataDragonContentProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoLDataDragonContentProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52E805F1B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoLDataDragonContentProviderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52E80641B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLDataDragonContentProviderTests.swift; sourceTree = "<group>"; };
@@ -51,6 +55,8 @@
 		A56728131B6EF6C100722100 /* DataDragonContentProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonContentProvider.swift; sourceTree = "<group>"; };
 		A56728141B6EF6C100722100 /* DataDragonDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonDatabase.swift; sourceTree = "<group>"; };
 		A56728151B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonSQLiteOpenHelper.swift; sourceTree = "<group>"; };
+		A567281C1B6EF7C500722100 /* DataDragon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragon.swift; sourceTree = "<group>"; };
+		A57F70CE1B77A09B00D46102 /* SwiftAdaptersFMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAdaptersFMDB.framework; path = "Carthage/Checkouts/swift-adapters-fmdb/build/Debug-iphoneos/SwiftAdaptersFMDB.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A57F70CF1B77A09B00D46102 /* SwiftAdaptersFMDB.framework in Frameworks */,
 				A56728081B6D61C600722100 /* CocoaLumberjackSwift.framework in Frameworks */,
 				A52E80D41B6C596800DE54E7 /* SwiftProtocolsCore.framework in Frameworks */,
 				A52E80861B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework in Frameworks */,
@@ -77,9 +84,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A50B5B341B736E9A0093049A /* content */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = content;
+			sourceTree = "<group>";
+		};
 		A52E804B1B6BDB2400DE54E7 = {
 			isa = PBXGroup;
 			children = (
+				A57F70CE1B77A09B00D46102 /* SwiftAdaptersFMDB.framework */,
 				A56728071B6D61C600722100 /* CocoaLumberjackSwift.framework */,
 				A52E80D31B6C596800DE54E7 /* SwiftProtocolsCore.framework */,
 				A52E80851B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework */,
@@ -131,6 +146,7 @@
 		A56728091B6EF6C100722100 /* internal */ = {
 			isa = PBXGroup;
 			children = (
+				A50B5B341B736E9A0093049A /* content */,
 				A567280A1B6EF6C100722100 /* lol */,
 			);
 			path = internal;
@@ -150,6 +166,7 @@
 			children = (
 				A567280C1B6EF6C100722100 /* GetChampionDataCommand.swift */,
 				A567280D1B6EF6C100722100 /* GetRealmCommand.swift */,
+				A50B5B321B721A850093049A /* SyncRemoteDataDragonDataCommand.swift */,
 			);
 			path = command;
 			sourceTree = "<group>";
@@ -166,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				A56728111B6EF6C100722100 /* content */,
+				A567281C1B6EF7C500722100 /* DataDragon.swift */,
 			);
 			path = public;
 			sourceTree = "<group>";
@@ -298,10 +316,12 @@
 			files = (
 				A567281A1B6EF6C100722100 /* DataDragonDatabase.swift in Sources */,
 				A56728171B6EF6C100722100 /* GetRealmCommand.swift in Sources */,
+				A567281D1B6EF7C500722100 /* DataDragon.swift in Sources */,
 				A56728161B6EF6C100722100 /* GetChampionDataCommand.swift in Sources */,
 				A567281B1B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift in Sources */,
 				A56728181B6EF6C100722100 /* LoLApiRequestManager.swift in Sources */,
 				A56728191B6EF6C100722100 /* DataDragonContentProvider.swift in Sources */,
+				A50B5B331B721A850093049A /* SyncRemoteDataDragonDataCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +448,7 @@
 					"$(PROJECT_DIR)/Carthage/Checkouts/swift-protocols-sqlite/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/swift-adapters-fmdb/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "LoLDataDragonContentProvider/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -455,6 +476,7 @@
 					"$(PROJECT_DIR)/Carthage/Checkouts/swift-protocols-sqlite/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/swift-adapters-fmdb/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "LoLDataDragonContentProvider/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

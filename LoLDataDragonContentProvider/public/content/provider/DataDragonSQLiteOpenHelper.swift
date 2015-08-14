@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CocoaLumberjackSwift
 import SwiftProtocolsSQLite
 import SwiftProtocolsCore
 
@@ -37,6 +38,7 @@ public class DataDragonSQLiteOpenHelper : BaseSQLiteOpenHelper {
     
     // MARK: Private functions
     private func createChampionTable(database: SQLiteDatabase) throws {
+        DDLogVerbose("Creating Champion table...")
         var sqlString = "CREATE TABLE " +
             DataDragonDatabase.Champion.table +
             " (" +
@@ -57,6 +59,7 @@ public class DataDragonSQLiteOpenHelper : BaseSQLiteOpenHelper {
     }
     
     private func createChampionSkinTable(database: SQLiteDatabase) throws {
+        DDLogVerbose("Creating Champion Skin table...")
         let sqlString = "CREATE TABLE " +
             DataDragonDatabase.ChampionSkin.table +
             " (" +
@@ -68,12 +71,13 @@ public class DataDragonSQLiteOpenHelper : BaseSQLiteOpenHelper {
             DataDragonDatabase.ChampionSkin.Columns.landscapeImageUrl + " TEXT NOT NULL, " +
             "PRIMARY KEY(" +
             DataDragonDatabase.ChampionSkin.Columns.id + "," +
-            DataDragonDatabase.ChampionSkin.Columns.skinNumber + ")"
+            DataDragonDatabase.ChampionSkin.Columns.skinNumber + "))"
         
         try database.executeUpdate(sqlString)
     }
     
     private func createRealmTable(database: SQLiteDatabase) throws {
+        DDLogVerbose("Creating Realm table...")
         let sqlString = "CREATE TABLE " +
             DataDragonDatabase.Realm.table +
             " (" +
