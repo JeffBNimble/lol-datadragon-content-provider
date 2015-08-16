@@ -19,7 +19,7 @@ import SwiftContentProvider
 import SwiftProtocolsCore
 import SwiftProtocolsSQLite
 
-public class SyncRemoteDataDragonDataCommand {
+class SyncRemoteDataDragonDataCommand {
     private typealias ParsedVersion = (major: Int, minor: Int, patch: Int)
     private let apiRequestManager : LoLApiRequestManager
     private let contentResolver : ContentResolver
@@ -28,7 +28,7 @@ public class SyncRemoteDataDragonDataCommand {
     private let httpQueue : dispatch_queue_t
     private let urlCache : NSURLCache
     
-    public init(apiRequestManager : LoLApiRequestManager,
+    init(apiRequestManager : LoLApiRequestManager,
         contentResolver: ContentResolver,
         database: SQLiteDatabase,
         databaseQueue: dispatch_queue_t,
@@ -42,27 +42,37 @@ public class SyncRemoteDataDragonDataCommand {
         self.urlCache = urlCache
     }
     
-    public func execute(result: () -> (), error: (ErrorType) -> ()) {
+    func execute() {
         do {
-            // First, retrieve the local and remote realm versions and compare
+            // Step 1: retrieve the local and remote realm versions and compare
             let versions = try self.getLocalAndRemoteRealmVersions()
             let parsedRemoteVersion = try self.parseVersion(versions.remoteRealmVersion)
             let parsedLocalVersion = try self.parseVersion(versions.localRealmVersion)
             
+            // If the local and remote major and minor versions are the same, no need to re-sync
             guard self.compareVersions(parsedLocalVersion, remoteVersion: parsedRemoteVersion) == false else {
-                result()
                 return
             }
             
-            // If we get here, we need to re-sync
+            // Step 2: Clear the local database and NSURLCache
             try self.resetLocalStorage()
+            
+            // Step 3: Retrieve the champion and skin data from the Riot API
             let championJSON = try self.getChampionJSONData()
             
-            // Insert the realm
+            // Step 4: Insert the realm
             try self.insertRealm(versions.remoteRealm!)
             
-            // Insert the champion and champion skins
-            let imageUrls = try self.insertChampionsAndSkins(championJSON, dataDragonCDN: versions.remoteRealm["cdn"] as! String)
+            // Step 5: Insert the champion and champion skins and notify on the content resolver
+            let cdn = versions.remoteRealm!["cdn"] as! String
+            let apiVersions = versions.remoteRealm!["n"] as! [String : AnyObject]
+            let championVersion = apiVersions["champion"] as! String
+            let imageUrls = try self.insertChampionsAndSkins(championJSON, cdn: cdn, championRealmVersion: championVersion)
+            self.contentResolver.notifyChange(DataDragonDatabase.Champion.uri, operation: .Insert)
+            
+            // Step 6: Cache all of the images
+            CacheChampionImagesCommand(imageUrls: imageUrls.squareUrls, completionQueue: self.httpQueue).execute()
+            CacheChampionImagesCommand(imageUrls: imageUrls.portraitUrls + imageUrls.landscapeUrls, completionQueue: self.httpQueue).execute()
             
         } catch {
             DDLogError("An error occurred trying to sync the local data with the latest remote, \(error)")
@@ -181,12 +191,18 @@ public class SyncRemoteDataDragonDataCommand {
     /// insertChampionAndSkins: Inserts a row for each champion and champion skin
     /// Throws: A SQL error, if one occurs
     /// Return: A tuple of 3 batches of image URL's, one for the splash, one for the portrait and one for the landscape images
-    private func insertChampionsAndSkins(json: [String : AnyObject], dataDragonCDN: String) throws -> (splashUrls : [String], portraitUrls : [String], landscapeUrls : [String]) {
+    private func insertChampionsAndSkins(json: [String : AnyObject],
+        cdn: String,
+        championRealmVersion: String)
+        throws -> (squareUrls : [String], portraitUrls : [String], landscapeUrls : [String]) {
         let sqlSemaphore = dispatch_semaphore_create(0)
+        let baseCDNUrl = NSURL(string: cdn)
         var sqlError : ErrorType?
-        var splashImageUrls : [String] = []
+        var squareImageUrls : [String] = []
         var portraitImageUrls : [String] = []
         var landscapeImageUrls : [String] = []
+        var count = 0
+        var skinCount = 0
         
         dispatch_async(self.databaseQueue, {
             defer {
@@ -194,20 +210,70 @@ public class SyncRemoteDataDragonDataCommand {
             }
             
             do {
-                let allChampionData = json["data"] as! [String : AnyObject]
+                let allChampionsData = json["data"] as! [String : AnyObject]
                 let insertOp = SQLUpdateOperation(database: self.database, statementBuilder: SQLiteStatementBuilder())
                 
-                for key in allChampionData.keys {
-                    var championData = (allChampionData[key] as! [String : AnyObject]).map() { championJSON in
-                        guard let championJSON = championJSON as! [String : AnyObject] else {
-                            return [String : AnyObject]()
-                        }
+                for key in allChampionsData.keys {
+                    count++
+                    var championData = allChampionsData[key] as! [String : AnyObject] // All JSON data for a champion
+                    let skinsData = championData["skins"] as! [[String : AnyObject]] // All JSON skins data for a champion
+                    let championId = championData["id"] as! Int
+                    let championKey = championData["key"] as! String
+                    
+                    
+                    let squareImageURL = NSURL(string: "cdn/\(championRealmVersion)/img/champion/\(championKey).png", relativeToURL: baseCDNUrl!)?.absoluteString
+                    var contentValues : [String : AnyObject] = [:]
+                    
+                    contentValues[DataDragonDatabase.Champion.Columns.id] = championId
+                    contentValues[DataDragonDatabase.Champion.Columns.key] = championKey
+                    contentValues[DataDragonDatabase.Champion.Columns.name] = championData["name"]
+                    contentValues[DataDragonDatabase.Champion.Columns.blurb] = championData["blurb"]
+                    contentValues[DataDragonDatabase.Champion.Columns.title] = championData["title"]
+                    contentValues[DataDragonDatabase.Champion.Columns.imageUrl] = squareImageURL!
+                    
+                    squareImageUrls.append(squareImageURL!)
+                    
+                    insertOp.tableName = DataDragonDatabase.Champion.table
+                    insertOp.contentValues = contentValues
+                    try insertOp.executeInsert()
+                    
+                    contentValues.removeAll()
+                    
+                    for skinData : [String : AnyObject] in skinsData {
+                        skinCount++
+                        let skinNumber = skinData["num"] as! Int
+                        let portraitImageURL = NSURL(string: "cdn/img/champion/splash/\(championKey)_\(skinNumber).jpg", relativeToURL: baseCDNUrl!)?.absoluteString
+                        let landscapeImageURL = NSURL(string: "cdn/img/champion/loading/\(championKey)_\(skinNumber).jpg", relativeToURL: baseCDNUrl!)?.absoluteString
+                        
+                        contentValues[DataDragonDatabase.ChampionSkin.Columns.championId] = championId
+                        contentValues[DataDragonDatabase.ChampionSkin.Columns.id] = skinData["id"]
+                        contentValues[DataDragonDatabase.ChampionSkin.Columns.skinNumber] = skinNumber
+                        contentValues[DataDragonDatabase.ChampionSkin.Columns.name] = skinData["name"]
+                        contentValues[DataDragonDatabase.ChampionSkin.Columns.portraitImageUrl] = portraitImageURL
+                        contentValues[DataDragonDatabase.ChampionSkin.Columns.landscapeImageUrl] = landscapeImageURL
+                        
+                        portraitImageUrls.append(portraitImageURL!)
+                        landscapeImageUrls.append(landscapeImageURL!)
+                        
+                        insertOp.tableName = DataDragonDatabase.ChampionSkin.table
+                        insertOp.contentValues = contentValues
+                        
+                        try insertOp.executeInsert()
                     }
+                
                 }
             } catch {
                 sqlError = error
             }
         })
+            
+        dispatch_semaphore_wait(sqlSemaphore, DISPATCH_TIME_FOREVER)
+        print("Inserted \(count) champs and \(skinCount) skins")
+        if sqlError != nil {
+            throw sqlError!
+        }
+            
+        return (squareImageUrls, portraitImageUrls, landscapeImageUrls)
     }
     
     /// insertRealm: Inserts the specified realm into the database

@@ -23,7 +23,7 @@
 		A567281A1B6EF6C100722100 /* DataDragonDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56728141B6EF6C100722100 /* DataDragonDatabase.swift */; };
 		A567281B1B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56728151B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift */; };
 		A567281D1B6EF7C500722100 /* DataDragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567281C1B6EF7C500722100 /* DataDragon.swift */; };
-		A57F70CF1B77A09B00D46102 /* SwiftAdaptersFMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A57F70CE1B77A09B00D46102 /* SwiftAdaptersFMDB.framework */; };
+		A5771ACD1B7FB04900CD4E70 /* CacheChampionImagesCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5771ACC1B7FB04900CD4E70 /* CacheChampionImagesCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +56,7 @@
 		A56728141B6EF6C100722100 /* DataDragonDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonDatabase.swift; sourceTree = "<group>"; };
 		A56728151B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonSQLiteOpenHelper.swift; sourceTree = "<group>"; };
 		A567281C1B6EF7C500722100 /* DataDragon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragon.swift; sourceTree = "<group>"; };
+		A5771ACC1B7FB04900CD4E70 /* CacheChampionImagesCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheChampionImagesCommand.swift; sourceTree = "<group>"; };
 		A57F70CE1B77A09B00D46102 /* SwiftAdaptersFMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAdaptersFMDB.framework; path = "Carthage/Checkouts/swift-adapters-fmdb/build/Debug-iphoneos/SwiftAdaptersFMDB.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +65,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A57F70CF1B77A09B00D46102 /* SwiftAdaptersFMDB.framework in Frameworks */,
 				A56728081B6D61C600722100 /* CocoaLumberjackSwift.framework in Frameworks */,
 				A52E80D41B6C596800DE54E7 /* SwiftProtocolsCore.framework in Frameworks */,
 				A52E80861B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework in Frameworks */,
@@ -164,6 +164,7 @@
 		A567280B1B6EF6C100722100 /* command */ = {
 			isa = PBXGroup;
 			children = (
+				A5771ACC1B7FB04900CD4E70 /* CacheChampionImagesCommand.swift */,
 				A567280C1B6EF6C100722100 /* GetChampionDataCommand.swift */,
 				A567280D1B6EF6C100722100 /* GetRealmCommand.swift */,
 				A50B5B321B721A850093049A /* SyncRemoteDataDragonDataCommand.swift */,
@@ -314,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5771ACD1B7FB04900CD4E70 /* CacheChampionImagesCommand.swift in Sources */,
 				A567281A1B6EF6C100722100 /* DataDragonDatabase.swift in Sources */,
 				A56728171B6EF6C100722100 /* GetRealmCommand.swift in Sources */,
 				A567281D1B6EF7C500722100 /* DataDragon.swift in Sources */,

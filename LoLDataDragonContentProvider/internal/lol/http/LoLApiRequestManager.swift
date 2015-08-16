@@ -39,7 +39,7 @@ public class LoLApiRequestManager : Alamofire.Manager {
             self.completionQueue = completionQueue
     }
 
-    public required init(configuration: NSURLSessionConfiguration, serverTrustPolicyManager: ServerTrustPolicyManager?) {
+    public required override init(configuration: NSURLSessionConfiguration, serverTrustPolicyManager: ServerTrustPolicyManager?) {
         self.apiKey = ""
         self.apiVersion = ""
         self.region = ""

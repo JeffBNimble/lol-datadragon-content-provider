@@ -36,6 +36,9 @@ public class DataDragon : ModuleInterface {
         get { return self.sqliteOpenHelper.getDatabase() }
     }
     
+    /// databaseQueue: The dispatch queue to use for making database requests, should be a serial queue
+    public let databaseQueue : dispatch_queue_t
+    
     // Mark: Private variables
     
     /// apiKey: The Riot Games Developer API key used to make requests against the Riot API
@@ -69,9 +72,6 @@ public class DataDragon : ModuleInterface {
     /// databaseVersion: The version of the database schema
     private let databaseVersion = 1
     
-    /// databaseQueue: The dispatch queue to use for making database requests, should be a serial queue
-    private let databaseQueue : dispatch_queue_t
-    
     /// httpQueue: The dispatch queue to use for requesting and returning http responses
     private let httpQueue : dispatch_queue_t
     
@@ -100,6 +100,7 @@ public class DataDragon : ModuleInterface {
             self.databaseName = databaseName
             self.region = region!
             
+            DataDragonDatabase.contentAuthority = self.contentAuthority
             self.sqliteOpenHelper = DataDragonSQLiteOpenHelper(databaseFactory: self.databaseFactory, databaseName: self.databaseName, version: self.databaseVersion)
             
             if databaseDispatchQueue == nil {
@@ -129,10 +130,7 @@ public class DataDragon : ModuleInterface {
             databaseQueue: self.databaseQueue,
             httpQueue: self.httpQueue,
             urlCache: self.urlCache)
-        syncCommand.execute( { result in
-            }, error: { error in
-            }
-        )
+        syncCommand.execute()
     }
     
     // Mark: Private functions
