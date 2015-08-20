@@ -9,8 +9,9 @@
 import Foundation
 import Alamofire
 import CocoaLumberjackSwift
+import SwiftProtocolsCore
 
-class CacheChampionImagesCommand {
+class CacheChampionImagesCommand : Command {
     private let completionQueue : dispatch_queue_t
     private let imageUrls : [String]
     
@@ -19,7 +20,7 @@ class CacheChampionImagesCommand {
         self.completionQueue = completionQueue
     }
     
-    func execute() {
+    func execute() throws {
         var count = Int32(self.imageUrls.count)
         let cacheSemaphore : dispatch_semaphore_t = dispatch_semaphore_create(Int(count))
         let before = NSDate()

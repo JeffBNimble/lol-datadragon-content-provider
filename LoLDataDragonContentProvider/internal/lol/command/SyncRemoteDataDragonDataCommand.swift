@@ -19,7 +19,7 @@ import SwiftContentProvider
 import SwiftProtocolsCore
 import SwiftProtocolsSQLite
 
-class SyncRemoteDataDragonDataCommand {
+class SyncRemoteDataDragonDataCommand : Command {
     private typealias ParsedVersion = (major: Int, minor: Int, patch: Int)
     private let apiRequestManager : LoLApiRequestManager
     private let contentResolver : ContentResolver
@@ -42,41 +42,36 @@ class SyncRemoteDataDragonDataCommand {
         self.urlCache = urlCache
     }
     
-    func execute() {
-        do {
-            // Step 1: retrieve the local and remote realm versions and compare
-            let versions = try self.getLocalAndRemoteRealmVersions()
-            let parsedRemoteVersion = try self.parseVersion(versions.remoteRealmVersion)
-            let parsedLocalVersion = try self.parseVersion(versions.localRealmVersion)
+    func execute() throws {
+        // Step 1: retrieve the local and remote realm versions and compare
+        let versions = try self.getLocalAndRemoteRealmVersions()
+        let parsedRemoteVersion = try self.parseVersion(versions.remoteRealmVersion)
+        let parsedLocalVersion = try self.parseVersion(versions.localRealmVersion)
             
-            // If the local and remote major and minor versions are the same, no need to re-sync
-            guard self.compareVersions(parsedLocalVersion, remoteVersion: parsedRemoteVersion) == false else {
-                return
-            }
-            
-            // Step 2: Clear the local database and NSURLCache
-            try self.resetLocalStorage()
-            
-            // Step 3: Retrieve the champion and skin data from the Riot API
-            let championJSON = try self.getChampionJSONData()
-            
-            // Step 4: Insert the realm
-            try self.insertRealm(versions.remoteRealm!)
-            
-            // Step 5: Insert the champion and champion skins and notify on the content resolver
-            let cdn = versions.remoteRealm!["cdn"] as! String
-            let apiVersions = versions.remoteRealm!["n"] as! [String : AnyObject]
-            let championVersion = apiVersions["champion"] as! String
-            let imageUrls = try self.insertChampionsAndSkins(championJSON, cdn: cdn, championRealmVersion: championVersion)
-            self.contentResolver.notifyChange(DataDragonDatabase.Champion.uri, operation: .Insert)
-            
-            // Step 6: Cache all of the images
-            CacheChampionImagesCommand(imageUrls: imageUrls.squareUrls, completionQueue: self.httpQueue).execute()
-            CacheChampionImagesCommand(imageUrls: imageUrls.portraitUrls + imageUrls.landscapeUrls, completionQueue: self.httpQueue).execute()
-            
-        } catch {
-            DDLogError("An error occurred trying to sync the local data with the latest remote, \(error)")
+        // If the local and remote major and minor versions are the same, no need to re-sync
+        guard self.compareVersions(parsedLocalVersion, remoteVersion: parsedRemoteVersion) == false else {
+            return
         }
+            
+        // Step 2: Clear the local database and NSURLCache
+        try self.resetLocalStorage()
+            
+        // Step 3: Retrieve the champion and skin data from the Riot API
+        let championJSON = try self.getChampionJSONData()
+            
+        // Step 4: Insert the realm
+        try self.insertRealm(versions.remoteRealm!)
+            
+        // Step 5: Insert the champion and champion skins and notify on the content resolver
+        let cdn = versions.remoteRealm!["cdn"] as! String
+        let apiVersions = versions.remoteRealm!["n"] as! [String : AnyObject]
+        let championVersion = apiVersions["champion"] as! String
+        let imageUrls = try self.insertChampionsAndSkins(championJSON, cdn: cdn, championRealmVersion: championVersion)
+        self.contentResolver.notifyChange(DataDragonDatabase.Champion.uri, operation: .Insert)
+            
+        // Step 6: Cache all of the images
+        try CacheChampionImagesCommand(imageUrls: imageUrls.squareUrls, completionQueue: self.httpQueue).execute()
+        try CacheChampionImagesCommand(imageUrls: imageUrls.portraitUrls + imageUrls.landscapeUrls, completionQueue: self.httpQueue).execute()
     }
     
     /// compareVersions: Compare the local and remote realm versions

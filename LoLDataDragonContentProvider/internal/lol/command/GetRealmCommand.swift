@@ -8,8 +8,9 @@
 
 import Foundation
 import Alamofire
+import SwiftProtocolsCore
 
-class GetRealmCommand {
+class GetRealmCommand : AsyncCommand {
     private static let REALM_PATH = "/api/lol/static-data/\(LoLApiRequestManager.PLACEHOLDER_REGION)/\(LoLApiRequestManager.PLACEHOLDER_API_VERSION)/realm"
     
     private let completionQueue : dispatch_queue_t
@@ -20,15 +21,15 @@ class GetRealmCommand {
         self.completionQueue = completionQueue
     }
     
-    func execute(success: (result: [String : AnyObject]?) -> (), error: (error: ErrorType?) -> ()) {
+    func execute(result: ([String : AnyObject]?) -> (), error: (ErrorType?) -> ()) {
         self.httpManager.request(Alamofire.Method.GET, GetRealmCommand.REALM_PATH)
-            .response(queue: self.completionQueue, responseSerializer: Request.JSONResponseSerializer()) { (_, _, result) in
-                guard result.isSuccess else {
-                    error(error: result.error)
+            .response(queue: self.completionQueue, responseSerializer: Request.JSONResponseSerializer()) { (_, _, httpResult) in
+                guard httpResult.isSuccess else {
+                    error(httpResult.error)
                     return
                 }
                 
-                success(result: result.value as? [String : AnyObject])
+                result(httpResult.value as? [String : AnyObject])
             }
         }
 }

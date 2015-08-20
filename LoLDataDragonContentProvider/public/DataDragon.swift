@@ -17,7 +17,7 @@ import SwiftContentProvider
 
 public protocol ModuleInterface {
     var database : SQLiteDatabase { get }
-    init(databaseFactory: Factory,
+    init(databaseFactory: DatabaseFactory,
         contentResolver : ContentResolver,
         apiKey : String,
         contentAuthority : String,
@@ -26,10 +26,11 @@ public protocol ModuleInterface {
         region : String?,
         databaseDispatchQueue: dispatch_queue_t?)
 
-    func sync(complete: (() -> ())?, error: ((error : ErrorType) -> ())?)
+    func sync() throws
 }
 
-public class DataDragon : ModuleInterface {
+@objc
+public class DataDragon : NSObject, ModuleInterface {
     
     /// database: The SQLiteDatabase instance used to store Data Dragon content
     public var database : SQLiteDatabase {
@@ -63,8 +64,8 @@ public class DataDragon : ModuleInterface {
     /// dataDragonHttpRequestManager: The AlamoFire Http request manager used to make requests of the Riot API
     private let dataDragonHttpRequestManager : LoLApiRequestManager
 
-    /// databaseFactory: The Factory used to create a SQLiteDatabase instance through which SQL is executed
-    private var databaseFactory : Factory
+    /// databaseFactory: The DatabaseFactory used to create a SQLiteDatabase instance through which SQL is executed
+    private var databaseFactory : DatabaseFactory
     
     /// databaseName: The name of the SQLite database name
     private let databaseName : String?
@@ -84,7 +85,7 @@ public class DataDragon : ModuleInterface {
     /// urlCache: The NSURLCache that is used to cache content from the Data Dragon API (images)
     private let urlCache : NSURLCache
     
-    public required init(databaseFactory: Factory,
+    public required init(databaseFactory: DatabaseFactory,
         contentResolver : ContentResolver,
         apiKey : String,
         contentAuthority : String,
@@ -117,20 +118,22 @@ public class DataDragon : ModuleInterface {
                 region: self.region,
                 apiVersion: self.apiVersion)
             
+            super.init()
+            
             self.initialize()
     }
     
     /// sync: Request that a sync occur between the Riot API and the Data Dragon Content Provider
     /// complete: An optional closure that will be called if/when the sync completes without error
     /// error: An optional closure that will be called if the sync ends in an error
-    public func sync(complete: (() -> ())?, error: ((error : ErrorType) -> ())?) {
+    public func sync() throws {
         let syncCommand = SyncRemoteDataDragonDataCommand(apiRequestManager: self.dataDragonHttpRequestManager,
             contentResolver: self.contentResolver,
             database: self.database,
             databaseQueue: self.databaseQueue,
             httpQueue: self.httpQueue,
             urlCache: self.urlCache)
-        syncCommand.execute()
+        try syncCommand.execute()
     }
     
     // Mark: Private functions

@@ -54,7 +54,7 @@
 		A567280F1B6EF6C100722100 /* LoLApiRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoLApiRequestManager.swift; sourceTree = "<group>"; };
 		A56728131B6EF6C100722100 /* DataDragonContentProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonContentProvider.swift; sourceTree = "<group>"; };
 		A56728141B6EF6C100722100 /* DataDragonDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonDatabase.swift; sourceTree = "<group>"; };
-		A56728151B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragonSQLiteOpenHelper.swift; sourceTree = "<group>"; };
+		A56728151B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataDragonSQLiteOpenHelper.swift; path = ../../public/content/provider/DataDragonSQLiteOpenHelper.swift; sourceTree = "<group>"; };
 		A567281C1B6EF7C500722100 /* DataDragon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragon.swift; sourceTree = "<group>"; };
 		A5771ACC1B7FB04900CD4E70 /* CacheChampionImagesCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheChampionImagesCommand.swift; sourceTree = "<group>"; };
 		A57F70CE1B77A09B00D46102 /* SwiftAdaptersFMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAdaptersFMDB.framework; path = "Carthage/Checkouts/swift-adapters-fmdb/build/Debug-iphoneos/SwiftAdaptersFMDB.framework"; sourceTree = "<group>"; };
@@ -87,6 +87,7 @@
 		A50B5B341B736E9A0093049A /* content */ = {
 			isa = PBXGroup;
 			children = (
+				A56728151B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift */,
 			);
 			path = content;
 			sourceTree = "<group>";
@@ -202,7 +203,6 @@
 			children = (
 				A56728131B6EF6C100722100 /* DataDragonContentProvider.swift */,
 				A56728141B6EF6C100722100 /* DataDragonDatabase.swift */,
-				A56728151B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift */,
 			);
 			path = provider;
 			sourceTree = "<group>";

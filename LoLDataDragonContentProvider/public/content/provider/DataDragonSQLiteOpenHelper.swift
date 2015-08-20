@@ -11,12 +11,12 @@ import CocoaLumberjackSwift
 import SwiftProtocolsSQLite
 import SwiftProtocolsCore
 
-public class DataDragonSQLiteOpenHelper : BaseSQLiteOpenHelper {
-    public required init(databaseFactory: Factory, databaseName: String?, version: Int) {
+class DataDragonSQLiteOpenHelper : BaseSQLiteOpenHelper {
+    required init(databaseFactory: DatabaseFactory, databaseName: String?, version: Int) {
         super.init(databaseFactory: databaseFactory, databaseName: databaseName, version: version)
     }
     
-    override public func onCreate(database: SQLiteDatabase) throws {
+    override func onCreate(database: SQLiteDatabase) throws {
         try super.onCreate(database)
         
         try self.createRealmTable(database)
@@ -24,13 +24,13 @@ public class DataDragonSQLiteOpenHelper : BaseSQLiteOpenHelper {
         try self.createChampionSkinTable(database)
     }
     
-    override public func onDowngrade(database: SQLiteDatabase, fromOldVersion: Int, toNewVersion: Int) throws {
+    override func onDowngrade(database: SQLiteDatabase, fromOldVersion: Int, toNewVersion: Int) throws {
         try super.onDowngrade(database, fromOldVersion: fromOldVersion, toNewVersion: toNewVersion)
         
         try self.dropAndRecreateDatabase(database)
     }
     
-    override public func onUpgrade(database: SQLiteDatabase, fromOldVersion: Int, toNewVersion: Int) throws {
+    override func onUpgrade(database: SQLiteDatabase, fromOldVersion: Int, toNewVersion: Int) throws {
         try super.onUpgrade(database, fromOldVersion: fromOldVersion, toNewVersion: toNewVersion)
         
         try self.dropAndRecreateDatabase(database)

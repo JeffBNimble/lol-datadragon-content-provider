@@ -9,23 +9,23 @@
 import Foundation
 import Alamofire
 
-public class LoLApiRequestManager : Alamofire.Manager {
-    public static let PLACEHOLDER_API_VERSION = LoLApiRequestManager.placeholderWith("api.version")
-    public static let PLACEHOLDER_ID = LoLApiRequestManager.placeholderWith("id")
-    public static let PLACEHOLDER_REGION = LoLApiRequestManager.placeholderWith("api.region")
+class LoLApiRequestManager : Alamofire.Manager {
+    static let PLACEHOLDER_API_VERSION = LoLApiRequestManager.placeholderWith("api.version")
+    static let PLACEHOLDER_ID = LoLApiRequestManager.placeholderWith("id")
+    static let PLACEHOLDER_REGION = LoLApiRequestManager.placeholderWith("api.region")
     
     private static func placeholderWith(placeholderIdentifier: String) -> String {
         return "{\(placeholderIdentifier)}"
     }
     
-    public var completionQueue: dispatch_queue_t?
+    var completionQueue: dispatch_queue_t?
     
     private var apiKey : String
     private var apiVersion : String
     private var baseURL : String
     private var region : String
     
-    public convenience init(sessionConfiguration: NSURLSessionConfiguration,
+    convenience init(sessionConfiguration: NSURLSessionConfiguration,
         baseURL: NSURL,
         apiKey: String,
         region: String,
@@ -39,7 +39,7 @@ public class LoLApiRequestManager : Alamofire.Manager {
             self.completionQueue = completionQueue
     }
 
-    public required override init(configuration: NSURLSessionConfiguration, serverTrustPolicyManager: ServerTrustPolicyManager?) {
+    required override init(configuration: NSURLSessionConfiguration, serverTrustPolicyManager: ServerTrustPolicyManager?) {
         self.apiKey = ""
         self.apiVersion = ""
         self.region = ""
@@ -47,7 +47,7 @@ public class LoLApiRequestManager : Alamofire.Manager {
         super.init(configuration: configuration, serverTrustPolicyManager: serverTrustPolicyManager)
     }
     
-    public override func request(method: Alamofire.Method,
+    override func request(method: Alamofire.Method,
         _ URLString: URLStringConvertible,
         parameters: [String : AnyObject]? = nil,
         encoding: ParameterEncoding = .URL,
