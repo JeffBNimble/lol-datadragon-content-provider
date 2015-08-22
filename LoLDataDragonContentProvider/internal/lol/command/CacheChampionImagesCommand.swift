@@ -28,8 +28,11 @@ class CacheChampionImagesCommand : Command {
         self.imageUrls.forEach() { url in
                 DDLogVerbose("Caching image \(url)")
                 Alamofire.request(Alamofire.Method.GET, url)
-                    .response(queue: self.completionQueue, completionHandler: {(_, response, _, _) in
+                    .response(queue: self.completionQueue, completionHandler: {(_, response, _, error) in
                         DDLogVerbose("Got response code \(response?.statusCode) for \(url)")
+                        if error != nil {
+                            DDLogError("An error occurred caching image at \(url): \(error)")
+                        }
                         OSAtomicDecrement32(&count)
                         dispatch_semaphore_signal(cacheSemaphore)
                     })
