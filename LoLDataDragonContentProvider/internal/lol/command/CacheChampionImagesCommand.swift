@@ -22,7 +22,7 @@ class CacheChampionImagesCommand : Command {
     
     func execute() throws {
         var count = Int32(self.imageUrls.count)
-        let cacheSemaphore : dispatch_semaphore_t = dispatch_semaphore_create(Int(count))
+        let cacheSemaphore : dispatch_semaphore_t = dispatch_semaphore_create(0)
         let before = NSDate()
         
         self.imageUrls.forEach() { url in

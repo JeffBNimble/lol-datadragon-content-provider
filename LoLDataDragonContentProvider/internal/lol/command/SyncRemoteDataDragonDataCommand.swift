@@ -116,17 +116,17 @@ class SyncRemoteDataDragonDataCommand : Command {
     }
     
     private func getLocalAndRemoteRealmVersions() throws -> (localRealmVersion : String?, remoteRealmVersion : String?, remoteRealm: [String : AnyObject]?) {
-        var responseCount = 0
+        var responseCount : Int32 = 2
         var remoteRealmJSON : [String : AnyObject]?
         var localRealmVersion : String?
         var remoteRealmVersion : String?
-        let syncSemaphore = dispatch_semaphore_create(2)
+        let syncSemaphore = dispatch_semaphore_create(0)
         var syncError : ErrorType?
         
         // Issue an HTTP get request to get the latest remote realm
         GetRealmCommand(httpManager: self.apiRequestManager, completionQueue: self.httpQueue)
             .execute({ realmJSON in
-                responseCount++
+                OSAtomicDecrement32(&responseCount)
                 
                 remoteRealmJSON = realmJSON
                 remoteRealmVersion = realmJSON?["v"] as? String
@@ -134,7 +134,7 @@ class SyncRemoteDataDragonDataCommand : Command {
                 
                 dispatch_semaphore_signal(syncSemaphore)
             }, error: { error in
-                responseCount++
+                OSAtomicDecrement32(&responseCount)
                 syncError = error
             }
         )
@@ -163,12 +163,12 @@ class SyncRemoteDataDragonDataCommand : Command {
                 syncError = error
             }
             
-            responseCount++
+            OSAtomicDecrement32(&responseCount)
             
             dispatch_semaphore_signal(syncSemaphore)
         })
         
-        while responseCount < 2 {
+        while responseCount > 0 {
             dispatch_semaphore_wait(syncSemaphore, DISPATCH_TIME_FOREVER)
         }
         
