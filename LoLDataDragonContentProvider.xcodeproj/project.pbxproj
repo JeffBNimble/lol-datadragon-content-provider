@@ -57,6 +57,7 @@
 		A56728151B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataDragonSQLiteOpenHelper.swift; path = ../../public/content/provider/DataDragonSQLiteOpenHelper.swift; sourceTree = "<group>"; };
 		A567281C1B6EF7C500722100 /* DataDragon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragon.swift; sourceTree = "<group>"; };
 		A5771ACC1B7FB04900CD4E70 /* CacheChampionImagesCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheChampionImagesCommand.swift; sourceTree = "<group>"; };
+		A579BE251B88135C0085AA24 /* SwiftAdaptersFMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAdaptersFMDB.framework; path = "Carthage/Checkouts/swift-adapters-fmdb/build/Debug-iphoneos/SwiftAdaptersFMDB.framework"; sourceTree = "<group>"; };
 		A57F70CE1B77A09B00D46102 /* SwiftAdaptersFMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAdaptersFMDB.framework; path = "Carthage/Checkouts/swift-adapters-fmdb/build/Debug-iphoneos/SwiftAdaptersFMDB.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +96,7 @@
 		A52E804B1B6BDB2400DE54E7 = {
 			isa = PBXGroup;
 			children = (
+				A579BE251B88135C0085AA24 /* SwiftAdaptersFMDB.framework */,
 				A57F70CE1B77A09B00D46102 /* SwiftAdaptersFMDB.framework */,
 				A56728071B6D61C600722100 /* CocoaLumberjackSwift.framework */,
 				A52E80D31B6C596800DE54E7 /* SwiftProtocolsCore.framework */,

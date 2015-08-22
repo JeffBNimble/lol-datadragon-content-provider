@@ -25,7 +25,8 @@ public enum DataDragonUris : MatchedUri {
     }
 }
 
-public class DataDragonContentProvider : ContentProvider {
+@objc
+public class DataDragonContentProvider : NSObject, ContentProvider {
     public var contentResolver : ContentResolver?
     
     private let database : SQLiteDatabase
@@ -34,6 +35,7 @@ public class DataDragonContentProvider : ContentProvider {
     
     public init(database: SQLiteDatabase) {
         self.database = database
+        super.init()
     }
     
     public func delete(uri: Uri, selection: String?, selectionArgs: [AnyObject]?) throws -> Int {

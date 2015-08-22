@@ -10,7 +10,7 @@ import SwiftContentProvider
 import CocoaLumberjackSwift
 import XCPlayground
 
-XCPSetExecutionShouldContinueIndefinitely()
+//XCPSetExecutionShouldContinueIndefinitely()
 
 let consoleLogger = DDTTYLogger()
 DDLog.addLogger(consoleLogger, withLevel: .Verbose)
@@ -46,15 +46,17 @@ let contentAuthorityBase = "io.nimblenoggin.test"
 let dbFactory = FMDBDatabaseFactory()
 dbFactory is DatabaseFactory
 let contentResolver = ContentResolver(contentProviderFactory: CPFactory(), contentAuthorityBase: contentAuthorityBase, contentRegistrations: [String : NSObject.Type]() )
-let dataDragon = DataDragon(databaseFactory: dbFactory, contentResolver: contentResolver, apiKey: apiKey, contentAuthority: contentAuthorityBase, urlCache : NSURLCache.sharedURLCache(), databaseName: nil, databaseDispatchQueue: nil)
-print("Yo")
 
-dispatch_async(backgroundQueue, {
-    print("Async")
-    do {
-        try dataDragon.sync()
-    } catch {
-        print("Oh no \(error)")
-    }
-})
+FMDBDatabaseFactory.self.isSubclassOfClass(NSObject.self)
+//let dataDragon = DataDragon(databaseFactory: dbFactory, contentResolver: contentResolver, apiKey: apiKey, contentAuthority: contentAuthorityBase, urlCache : NSURLCache.sharedURLCache(), databaseName: nil, databaseDispatchQueue: nil)
+//print("Yo")
+//
+//dispatch_async(backgroundQueue, {
+//    print("Async")
+//    do {
+//        try dataDragon.sync()
+//    } catch {
+//        print("Oh no \(error)")
+//    }
+//})
 
