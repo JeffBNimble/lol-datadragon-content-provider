@@ -28,7 +28,7 @@ class CacheChampionImagesCommand : Command {
         let before = NSDate()
         
         for i in 0..<iterations {
-            self.cacheImages(i * CacheChampionImagesCommand.BATCH_SIZE, to: (i * CacheChampionImagesCommand.BATCH_SIZE) - 1)
+            self.cacheImages(i * CacheChampionImagesCommand.BATCH_SIZE, to: (i * CacheChampionImagesCommand.BATCH_SIZE) + CacheChampionImagesCommand.BATCH_SIZE - 1)
         }
         
         if remainder > 0 {
