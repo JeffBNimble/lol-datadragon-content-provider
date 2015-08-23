@@ -33,7 +33,7 @@ public class DataDragonContentProvider : NSObject, ContentProvider {
     private let sqlStatementBuilder = SQLiteStatementBuilder()
     private let uriMatcher : UriMatcher = UriMatcher()
     
-    public init(database: SQLiteDatabase) {
+    public required init(database: SQLiteDatabase) {
         self.database = database
         super.init()
     }
