@@ -17,6 +17,9 @@ DDLog.addLogger(consoleLogger, withLevel: .Verbose)
 
 let version = "5.15.1"
 
+let x = 75 / 50
+let y = 75 % 50
+
 let regex = try NSRegularExpression(pattern: "(\\d{1,2})", options: NSRegularExpressionOptions(rawValue: 0))
 let range = NSMakeRange(0, version.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
 let matches = regex.matchesInString(version as String, options: NSMatchingOptions.ReportProgress, range: range)
@@ -59,4 +62,6 @@ FMDBDatabaseFactory.self.isSubclassOfClass(NSObject.self)
 //        print("Oh no \(error)")
 //    }
 //})
+
+
 
