@@ -16,11 +16,12 @@ import SwiftProtocolsSQLite
 import SwiftContentProvider
 
 public protocol ModuleInterface {
+    static var contentAuthority : String { get }
     var database : SQLiteDatabase { get }
     init(databaseFactory: DatabaseFactory,
         contentResolver : ContentResolver,
         apiKey : String,
-        contentAuthority : String,
+        contentAuthorityBase : String,
         urlCache: NSURLCache,
         databaseName : String?,
         region : String?,
@@ -31,6 +32,9 @@ public protocol ModuleInterface {
 
 @objc
 public class DataDragon : NSObject, ModuleInterface {
+    public static var contentAuthority : String {
+        get { return "dataDragon" }
+    }
     
     /// database: The SQLiteDatabase instance used to store Data Dragon content
     public var database : SQLiteDatabase {
@@ -50,13 +54,6 @@ public class DataDragon : NSObject, ModuleInterface {
     
     /// baseURL: The base static data Riot API url, defaults to https://global.api.pvp.net
     private let baseURL = "https://global.api.pvp.net"
-    
-    /// contentAuthority: The content authority to use for data dragon content. This should be set to the bundle identifier
-    private var contentAuthority : String {
-        didSet {
-            DataDragonDatabase.contentAuthority = contentAuthority
-        }
-    }
     
     /// contentResolver: The ContentResolver through which all application content is resolved
     private var contentResolver : ContentResolver
@@ -88,7 +85,7 @@ public class DataDragon : NSObject, ModuleInterface {
     public required init(databaseFactory: DatabaseFactory,
         contentResolver : ContentResolver,
         apiKey : String,
-        contentAuthority : String,
+        contentAuthorityBase : String,
         urlCache : NSURLCache,
         databaseName : String?,
         region : String? = "na",
@@ -96,12 +93,12 @@ public class DataDragon : NSObject, ModuleInterface {
             self.databaseFactory = databaseFactory
             self.contentResolver = contentResolver
             self.apiKey = apiKey
-            self.contentAuthority = contentAuthority
             self.urlCache = urlCache
             self.databaseName = databaseName
             self.region = region!
             
-            DataDragonDatabase.contentAuthority = self.contentAuthority
+            DataDragonDatabase.contentAuthority = "\(contentAuthorityBase).\(DataDragon.contentAuthority)"
+            
             self.sqliteOpenHelper = DataDragonSQLiteOpenHelper(databaseFactory: self.databaseFactory, databaseName: self.databaseName, version: self.databaseVersion)
             
             if databaseDispatchQueue == nil {
