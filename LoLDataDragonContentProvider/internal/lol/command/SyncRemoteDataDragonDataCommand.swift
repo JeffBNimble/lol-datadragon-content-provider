@@ -237,8 +237,8 @@ class SyncRemoteDataDragonDataCommand : Command {
                     for skinData : [String : AnyObject] in skinsData {
                         skinCount++
                         let skinNumber = skinData["num"] as! Int
-                        let portraitImageURL = NSURL(string: "cdn/img/champion/splash/\(championKey)_\(skinNumber).jpg", relativeToURL: baseCDNUrl!)?.absoluteString
-                        let landscapeImageURL = NSURL(string: "cdn/img/champion/loading/\(championKey)_\(skinNumber).jpg", relativeToURL: baseCDNUrl!)?.absoluteString
+                        let landscapeImageURL = NSURL(string: "cdn/img/champion/splash/\(championKey)_\(skinNumber).jpg", relativeToURL: baseCDNUrl!)?.absoluteString
+                        let portraitImageURL = NSURL(string: "cdn/img/champion/loading/\(championKey)_\(skinNumber).jpg", relativeToURL: baseCDNUrl!)?.absoluteString
                         
                         contentValues[DataDragonDatabase.ChampionSkin.Columns.championId] = championId
                         contentValues[DataDragonDatabase.ChampionSkin.Columns.id] = skinData["id"]
