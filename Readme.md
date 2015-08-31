@@ -15,7 +15,7 @@ An application which uses this framework is the [League of Legends Champion Brow
 # Installation
 Use [Carthage](https://github.com/Carthage/Carthage). This framework requires the use of Swift 2 and XCode 7 or greater.
 
-Specify the following in your Cartfile to use swift-adapters-fmdb:
+Specify the following in your Cartfile to use lol-datadragon-content-provider:
 
 ```github "JeffBNimble/lol-datadragon-content-provider" "0.0.16"```
 
