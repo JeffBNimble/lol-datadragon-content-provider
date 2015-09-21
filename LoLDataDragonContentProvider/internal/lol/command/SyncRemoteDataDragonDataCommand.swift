@@ -336,9 +336,6 @@ class SyncRemoteDataDragonDataCommand : Command {
     private func resetLocalStorage() throws {
         let clearSemaphore = dispatch_semaphore_create(0)
         
-        self.urlCache.removeAllCachedResponses()
-        DDLogInfo("Clearing the shared URL cache")
-        
         dispatch_async(self.databaseQueue, {
             let deleteOp = SQLUpdateOperation(database: self.database, statementBuilder: SQLiteStatementBuilder())
             
