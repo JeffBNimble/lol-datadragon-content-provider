@@ -209,7 +209,7 @@ class SyncRemoteDataDragonDataCommand : Command {
                 let insertOp = SQLUpdateOperation(database: self.database, statementBuilder: SQLiteStatementBuilder())
                 
                 for key in allChampionsData.keys {
-                    count++
+                    count += 1
                     var championData = allChampionsData[key] as! [String : AnyObject] // All JSON data for a champion
                     let skinsData = championData["skins"] as! [[String : AnyObject]] // All JSON skins data for a champion
                     let championId = championData["id"] as! Int
@@ -235,7 +235,7 @@ class SyncRemoteDataDragonDataCommand : Command {
                     contentValues.removeAll()
                     
                     for skinData : [String : AnyObject] in skinsData {
-                        skinCount++
+                        skinCount += 1
                         let skinNumber = skinData["num"] as! Int
                         let landscapeImageURL = NSURL(string: "cdn/img/champion/splash/\(championKey)_\(skinNumber).jpg", relativeToURL: baseCDNUrl!)?.absoluteString
                         let portraitImageURL = NSURL(string: "cdn/img/champion/loading/\(championKey)_\(skinNumber).jpg", relativeToURL: baseCDNUrl!)?.absoluteString

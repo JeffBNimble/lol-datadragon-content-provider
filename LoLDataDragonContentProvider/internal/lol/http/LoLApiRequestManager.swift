@@ -31,7 +31,7 @@ class LoLApiRequestManager : Alamofire.Manager {
         region: String,
         apiVersion: String,
         completionQueue: dispatch_queue_t? = nil) {
-            self.init(configuration: sessionConfiguration, serverTrustPolicyManager: nil)
+        self.init(configuration: sessionConfiguration, serverTrustPolicyManager: nil)
             self.baseURL = baseURL.absoluteString
             self.apiKey = apiKey
             self.apiVersion = apiVersion
@@ -39,12 +39,12 @@ class LoLApiRequestManager : Alamofire.Manager {
             self.completionQueue = completionQueue
     }
 
-    required override init(configuration: NSURLSessionConfiguration, serverTrustPolicyManager: ServerTrustPolicyManager?) {
+    required override init(configuration: NSURLSessionConfiguration, delegate: SessionDelegate = SessionDelegate(), serverTrustPolicyManager: ServerTrustPolicyManager?) {
         self.apiKey = ""
         self.apiVersion = ""
         self.region = ""
         self.baseURL = ""
-        super.init(configuration: configuration, serverTrustPolicyManager: serverTrustPolicyManager)
+        super.init(configuration: configuration, delegate: delegate, serverTrustPolicyManager: serverTrustPolicyManager)
     }
     
     override func request(method: Alamofire.Method,

@@ -23,13 +23,9 @@ class GetChampionDataCommand : AsyncCommand {
     
     func execute(result: ([String : AnyObject]?) -> (), error: (ErrorType?) -> ()) {
         self.httpManager.request(Alamofire.Method.GET, GetChampionDataCommand.CHAMPION_PATH, parameters: ["champData" : "blurb,skins"])
-            .response(queue: self.completionQueue, responseSerializer: Request.JSONResponseSerializer()) { _, _, httpResult in
-                guard httpResult.isSuccess else {
-                    error(httpResult.error)
-                    return
-                }
-                
-                result(httpResult.value as? [String : AnyObject])
-            }
+            .responseJSON(queue: self.completionQueue, options: .AllowFragments, completionHandler: {
+                response in
+                result(response.result.value as? [String : AnyObject])
+            })
         }
 }
