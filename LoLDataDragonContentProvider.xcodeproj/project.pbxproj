@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A50B5B331B721A850093049A /* SyncRemoteDataDragonDataCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50B5B321B721A850093049A /* SyncRemoteDataDragonDataCommand.swift */; };
+		A529E7CB1CF00DD00014584C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A529E7C61CF00DD00014584C /* Alamofire.framework */; };
+		A529E7CC1CF00DD00014584C /* SwiftContentProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A529E7C71CF00DD00014584C /* SwiftContentProvider.framework */; };
+		A529E7CD1CF00DD00014584C /* SwiftProtocolsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A529E7C81CF00DD00014584C /* SwiftProtocolsCore.framework */; };
+		A529E7CE1CF00DD00014584C /* SwiftProtocolsSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A529E7C91CF00DD00014584C /* SwiftProtocolsSQLite.framework */; };
+		A529E7CF1CF00DD00014584C /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A529E7CA1CF00DD00014584C /* SwiftyBeaver.framework */; };
 		A52E80601B6BDB2500DE54E7 /* LoLDataDragonContentProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80551B6BDB2500DE54E7 /* LoLDataDragonContentProvider.framework */; };
 		A52E80651B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E80641B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.swift */; };
 		A52E80731B6BE3CB00DE54E7 /* LoLDataDragonContentProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = A52E80711B6BE3CB00DE54E7 /* LoLDataDragonContentProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A52E80831B6C300F00DE54E7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80811B6C300F00DE54E7 /* Alamofire.framework */; };
-		A52E80841B6C300F00DE54E7 /* SwiftContentProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80821B6C300F00DE54E7 /* SwiftContentProvider.framework */; };
-		A52E80861B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80851B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework */; };
-		A52E80D41B6C596800DE54E7 /* SwiftProtocolsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80D31B6C596800DE54E7 /* SwiftProtocolsCore.framework */; };
-		A56728081B6D61C600722100 /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56728071B6D61C600722100 /* CocoaLumberjackSwift.framework */; };
 		A56728161B6EF6C100722100 /* GetChampionDataCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567280C1B6EF6C100722100 /* GetChampionDataCommand.swift */; };
 		A56728171B6EF6C100722100 /* GetRealmCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567280D1B6EF6C100722100 /* GetRealmCommand.swift */; };
 		A56728181B6EF6C100722100 /* LoLApiRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567280F1B6EF6C100722100 /* LoLApiRequestManager.swift */; };
@@ -38,17 +38,17 @@
 
 /* Begin PBXFileReference section */
 		A50B5B321B721A850093049A /* SyncRemoteDataDragonDataCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncRemoteDataDragonDataCommand.swift; sourceTree = "<group>"; };
+		A529E7C61CF00DD00014584C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		A529E7C71CF00DD00014584C /* SwiftContentProvider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftContentProvider.framework; path = Carthage/Build/iOS/SwiftContentProvider.framework; sourceTree = "<group>"; };
+		A529E7C81CF00DD00014584C /* SwiftProtocolsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtocolsCore.framework; path = Carthage/Build/iOS/SwiftProtocolsCore.framework; sourceTree = "<group>"; };
+		A529E7C91CF00DD00014584C /* SwiftProtocolsSQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtocolsSQLite.framework; path = Carthage/Build/iOS/SwiftProtocolsSQLite.framework; sourceTree = "<group>"; };
+		A529E7CA1CF00DD00014584C /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		A52E80551B6BDB2500DE54E7 /* LoLDataDragonContentProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoLDataDragonContentProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52E805F1B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoLDataDragonContentProviderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52E80641B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLDataDragonContentProviderTests.swift; sourceTree = "<group>"; };
 		A52E80661B6BDB2500DE54E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A52E80701B6BE3CB00DE54E7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A52E80711B6BE3CB00DE54E7 /* LoLDataDragonContentProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoLDataDragonContentProvider.h; sourceTree = "<group>"; };
-		A52E80811B6C300F00DE54E7 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Carthage/Checkouts/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
-		A52E80821B6C300F00DE54E7 /* SwiftContentProvider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftContentProvider.framework; path = "Carthage/Checkouts/swift-content-provider/build/Debug-iphoneos/SwiftContentProvider.framework"; sourceTree = "<group>"; };
-		A52E80851B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtocolsSQLite.framework; path = "Carthage/Checkouts/swift-protocols-sqlite/build/Debug-iphoneos/SwiftProtocolsSQLite.framework"; sourceTree = "<group>"; };
-		A52E80D31B6C596800DE54E7 /* SwiftProtocolsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtocolsCore.framework; path = "Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos/SwiftProtocolsCore.framework"; sourceTree = "<group>"; };
-		A56728071B6D61C600722100 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = "Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjackSwift.framework"; sourceTree = "<group>"; };
 		A567280C1B6EF6C100722100 /* GetChampionDataCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetChampionDataCommand.swift; sourceTree = "<group>"; };
 		A567280D1B6EF6C100722100 /* GetRealmCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRealmCommand.swift; sourceTree = "<group>"; };
 		A567280F1B6EF6C100722100 /* LoLApiRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoLApiRequestManager.swift; sourceTree = "<group>"; };
@@ -57,8 +57,6 @@
 		A56728151B6EF6C100722100 /* DataDragonSQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataDragonSQLiteOpenHelper.swift; path = ../../public/content/provider/DataDragonSQLiteOpenHelper.swift; sourceTree = "<group>"; };
 		A567281C1B6EF7C500722100 /* DataDragon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDragon.swift; sourceTree = "<group>"; };
 		A5771ACC1B7FB04900CD4E70 /* CacheChampionImagesCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheChampionImagesCommand.swift; sourceTree = "<group>"; };
-		A579BE251B88135C0085AA24 /* SwiftAdaptersFMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAdaptersFMDB.framework; path = "Carthage/Checkouts/swift-adapters-fmdb/build/Debug-iphoneos/SwiftAdaptersFMDB.framework"; sourceTree = "<group>"; };
-		A57F70CE1B77A09B00D46102 /* SwiftAdaptersFMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAdaptersFMDB.framework; path = "Carthage/Checkouts/swift-adapters-fmdb/build/Debug-iphoneos/SwiftAdaptersFMDB.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,11 +64,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A56728081B6D61C600722100 /* CocoaLumberjackSwift.framework in Frameworks */,
-				A52E80D41B6C596800DE54E7 /* SwiftProtocolsCore.framework in Frameworks */,
-				A52E80861B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework in Frameworks */,
-				A52E80831B6C300F00DE54E7 /* Alamofire.framework in Frameworks */,
-				A52E80841B6C300F00DE54E7 /* SwiftContentProvider.framework in Frameworks */,
+				A529E7CB1CF00DD00014584C /* Alamofire.framework in Frameworks */,
+				A529E7CC1CF00DD00014584C /* SwiftContentProvider.framework in Frameworks */,
+				A529E7CD1CF00DD00014584C /* SwiftProtocolsCore.framework in Frameworks */,
+				A529E7CE1CF00DD00014584C /* SwiftProtocolsSQLite.framework in Frameworks */,
+				A529E7CF1CF00DD00014584C /* SwiftyBeaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,13 +94,11 @@
 		A52E804B1B6BDB2400DE54E7 = {
 			isa = PBXGroup;
 			children = (
-				A579BE251B88135C0085AA24 /* SwiftAdaptersFMDB.framework */,
-				A57F70CE1B77A09B00D46102 /* SwiftAdaptersFMDB.framework */,
-				A56728071B6D61C600722100 /* CocoaLumberjackSwift.framework */,
-				A52E80D31B6C596800DE54E7 /* SwiftProtocolsCore.framework */,
-				A52E80851B6C30B500DE54E7 /* SwiftProtocolsSQLite.framework */,
-				A52E80811B6C300F00DE54E7 /* Alamofire.framework */,
-				A52E80821B6C300F00DE54E7 /* SwiftContentProvider.framework */,
+				A529E7C61CF00DD00014584C /* Alamofire.framework */,
+				A529E7C71CF00DD00014584C /* SwiftContentProvider.framework */,
+				A529E7C81CF00DD00014584C /* SwiftProtocolsCore.framework */,
+				A529E7C91CF00DD00014584C /* SwiftProtocolsSQLite.framework */,
+				A529E7CA1CF00DD00014584C /* SwiftyBeaver.framework */,
 				A52E80571B6BDB2500DE54E7 /* LoLDataDragonContentProvider */,
 				A52E80631B6BDB2500DE54E7 /* LoLDataDragonContentProviderTests */,
 				A52E80561B6BDB2500DE54E7 /* Products */,
@@ -453,6 +449,7 @@
 					"$(PROJECT_DIR)/Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Carthage/Checkouts/swift-adapters-fmdb/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "LoLDataDragonContentProvider/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -481,6 +478,7 @@
 					"$(PROJECT_DIR)/Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Carthage/Checkouts/swift-adapters-fmdb/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "LoLDataDragonContentProvider/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

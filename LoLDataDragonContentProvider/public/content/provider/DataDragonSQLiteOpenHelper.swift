@@ -7,11 +7,13 @@
 //
 
 import Foundation
-import CocoaLumberjackSwift
 import SwiftProtocolsSQLite
 import SwiftProtocolsCore
+import SwiftyBeaver
 
 class DataDragonSQLiteOpenHelper : BaseSQLiteOpenHelper {
+    private let logger = SwiftyBeaver.self
+
     required init(databaseFactory: DatabaseFactory, databaseName: String?, version: Int) {
         super.init(databaseFactory: databaseFactory, databaseName: databaseName, version: version)
     }
@@ -38,7 +40,7 @@ class DataDragonSQLiteOpenHelper : BaseSQLiteOpenHelper {
     
     // MARK: Private functions
     private func createChampionTable(database: SQLiteDatabase) throws {
-        DDLogVerbose("Creating Champion table...")
+        logger.debug("Creating Champion table...")
         var sqlString = "CREATE TABLE " +
             DataDragonDatabase.Champion.table +
             " (" +
@@ -59,7 +61,7 @@ class DataDragonSQLiteOpenHelper : BaseSQLiteOpenHelper {
     }
     
     private func createChampionSkinTable(database: SQLiteDatabase) throws {
-        DDLogVerbose("Creating Champion Skin table...")
+        logger.debug("Creating Champion Skin table...")
         let sqlString = "CREATE TABLE " +
             DataDragonDatabase.ChampionSkin.table +
             " (" +
@@ -77,7 +79,7 @@ class DataDragonSQLiteOpenHelper : BaseSQLiteOpenHelper {
     }
     
     private func createRealmTable(database: SQLiteDatabase) throws {
-        DDLogVerbose("Creating Realm table...")
+        logger.debug("Creating Realm table...")
         let sqlString = "CREATE TABLE " +
             DataDragonDatabase.Realm.table +
             " (" +

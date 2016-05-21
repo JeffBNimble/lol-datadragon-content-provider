@@ -14,13 +14,15 @@
 //
 
 import Foundation
-import CocoaLumberjackSwift
 import SwiftContentProvider
 import SwiftProtocolsCore
 import SwiftProtocolsSQLite
+import SwiftyBeaver
 
 class SyncRemoteDataDragonDataCommand : Command {
     private typealias ParsedVersion = (major: Int, minor: Int, patch: Int)
+
+    private let logger = SwiftyBeaver.self
     private let apiRequestManager : LoLApiRequestManager
     private let contentResolver : ContentResolver
     private let database : SQLiteDatabase
@@ -130,7 +132,7 @@ class SyncRemoteDataDragonDataCommand : Command {
                 
                 remoteRealmJSON = realmJSON
                 remoteRealmVersion = realmJSON?["v"] as? String
-                DDLogInfo("Found remote realm version is \(remoteRealmVersion!)")
+                self.logger.info("Found remote realm version is \(remoteRealmVersion!)")
                 
                 dispatch_semaphore_signal(syncSemaphore)
             }, error: { error in
@@ -150,16 +152,16 @@ class SyncRemoteDataDragonDataCommand : Command {
                 let cursor = try query.executeQuery()
                 if cursor.next() {
                     localRealmVersion = cursor.stringFor(DataDragonDatabase.Realm.Columns.realmVersion)
-                    DDLogInfo("Found local realm version \(localRealmVersion)")
+                    self.logger.info("Found local realm version \(localRealmVersion)")
                 } else {
-                    DDLogInfo("No local realm version found")
+                    self.logger.info("No local realm version found")
                 }
                 
                 defer {
                     cursor.close()
                 }
             } catch {
-                DDLogError("Encountered an error querying the realm table, \(error)")
+                self.logger.error("Encountered an error querying the realm table, \(error)")
                 syncError = error
             }
             
@@ -347,19 +349,19 @@ class SyncRemoteDataDragonDataCommand : Command {
                 // Delete all rows from the champion skin table
                 deleteOp.tableName = DataDragonDatabase.ChampionSkin.table
                 var count = try deleteOp.executeDelete()
-                DDLogInfo("Deleted \(count) row(s) from the \(deleteOp.tableName!) table")
+                self.logger.info("Deleted \(count) row(s) from the \(deleteOp.tableName!) table")
                 
                 // Delete all rows from the champion table
                 deleteOp.tableName = DataDragonDatabase.Champion.table
                 count = try deleteOp.executeDelete()
-                DDLogInfo("Deleted \(count) row(s) from the \(deleteOp.tableName!) table")
+                self.logger.info("Deleted \(count) row(s) from the \(deleteOp.tableName!) table")
                 
                 // Delete all rows from the realm table
                 deleteOp.tableName = DataDragonDatabase.Realm.table
                 count = try deleteOp.executeDelete()
-                DDLogInfo("Deleted \(count) row(s) from the \(deleteOp.tableName!) table")
+                self.logger.info("Deleted \(count) row(s) from the \(deleteOp.tableName!) table")
             } catch {
-                DDLogError("An error occurred deleting rows from the DataDragon database, \(error)")
+                self.logger.error("An error occurred deleting rows from the DataDragon database, \(error)")
             }
         })
         

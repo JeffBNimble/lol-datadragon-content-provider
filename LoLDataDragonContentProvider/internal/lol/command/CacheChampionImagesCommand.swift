@@ -8,12 +8,13 @@
 
 import Foundation
 import Alamofire
-import CocoaLumberjackSwift
 import SwiftProtocolsCore
+import SwiftyBeaver
 
 class CacheChampionImagesCommand : Command {
     private static let BATCH_SIZE = 200
-    
+
+    private let logger = SwiftyBeaver.self
     private let completionQueue : dispatch_queue_t
     private let imageUrls : [String]
     
@@ -35,7 +36,7 @@ class CacheChampionImagesCommand : Command {
             self.cacheImages(iterations * CacheChampionImagesCommand.BATCH_SIZE, to: self.imageUrls.count - 1)
         }
         
-        DDLogVerbose("It took \(NSDate().timeIntervalSinceDate(before)) to cache \(self.imageUrls.count) images")
+        logger.debug("It took \(NSDate().timeIntervalSinceDate(before)) to cache \(self.imageUrls.count) images")
     }
     
     private func cacheImages(from: Int, to: Int) {
@@ -44,12 +45,12 @@ class CacheChampionImagesCommand : Command {
         
         for index in from...to {
             let url = self.imageUrls[index]
-            DDLogVerbose("Caching image \(url)")
+            logger.debug("Caching image \(url)")
             Alamofire.request(Alamofire.Method.GET, url)
                 .response(queue: self.completionQueue, completionHandler: {(_, response, _, error) in
-                    DDLogVerbose("Got response code \(response?.statusCode) for \(url)")
+                    self.logger.debug("Got response code \(response?.statusCode) for \(url)")
                     if error != nil {
-                        DDLogError("An error occurred caching image at \(url): \(error)")
+                        self.logger.error("An error occurred caching image at \(url): \(error)")
                     }
                     OSAtomicDecrement32(&count)
                     dispatch_semaphore_signal(cacheSemaphore)

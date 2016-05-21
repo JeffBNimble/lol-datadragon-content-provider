@@ -10,10 +10,10 @@
 //
 
 import Foundation
-import CocoaLumberjackSwift
 import SwiftProtocolsCore
 import SwiftProtocolsSQLite
 import SwiftContentProvider
+import SwiftyBeaver
 
 public protocol ModuleInterface {
     static var contentAuthority : String { get }
@@ -32,6 +32,8 @@ public protocol ModuleInterface {
 
 @objc
 public class DataDragon : NSObject, ModuleInterface {
+    private let logger = SwiftyBeaver.self
+
     public static var contentAuthority : String {
         get { return "dataDragon" }
     }
@@ -141,14 +143,14 @@ public class DataDragon : NSObject, ModuleInterface {
     private func initializeDatabaseAsync() {
         dispatch_async(self.databaseQueue, {
             do {
-                DDLogVerbose("Opening SQLite database...")
+                self.logger.debug("Opening SQLite database...")
                 self.sqliteOpenHelper.getDatabase()
                 
-                DDLogVerbose("Preparing SQLite database...")
+                self.logger.debug("Preparing SQLite database...")
                 try self.sqliteOpenHelper.prepare()
             } catch {
                 let error = error as NSError
-                DDLogError("An error occurred opening and/or preparing the database \(error.description)")
+                self.logger.error("An error occurred opening and/or preparing the database \(error.description)")
             }
         })
     }
