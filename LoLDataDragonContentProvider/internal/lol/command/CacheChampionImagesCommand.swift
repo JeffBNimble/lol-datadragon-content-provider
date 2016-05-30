@@ -45,13 +45,9 @@ class CacheChampionImagesCommand : Command {
         
         for index in from...to {
             let url = self.imageUrls[index]
-            logger.debug("Caching image \(url)")
             Alamofire.request(Alamofire.Method.GET, url)
-                .response(queue: self.completionQueue, completionHandler: {(_, response, _, error) in
-                    self.logger.debug("Got response code \(response?.statusCode) for \(url)")
-                    if error != nil {
-                        self.logger.error("An error occurred caching image at \(url): \(error)")
-                    }
+                .response(queue: self.completionQueue, completionHandler: {(request, response, _, error) in
+                    self.logger.logHTTPResponse(request, response: response, error: error)
                     OSAtomicDecrement32(&count)
                     dispatch_semaphore_signal(cacheSemaphore)
                 })
